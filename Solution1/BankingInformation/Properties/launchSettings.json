@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BankingInformation": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Users\\iygryaznov\\Desktop\\Program\\test_task_for_Merk_Team\\Tasks\\Task1_loans (1).json\""
+    }
+  }
+}
