@@ -9,7 +9,7 @@ namespace BankingInformation
         {
             if (args.Length != 1)
             {
-                Console.WriteLine("Please specify the correct path to the JSON file as a parameter");
+                Console.WriteLine("As a parameter, specify the full path to the JSON file (including the file name).");
                 return;
             }
 
@@ -104,15 +104,6 @@ namespace BankingInformation
                 }
 
 
-                // -Получить список всех кредитов вида:
-                //     ID кредита | Сумма кредита | Процентная ставка | Срок кредита | Тип кредита | Наименование банка | 
-                //         Фамилия и Имя заемщика
-                // - Получить список всех банков;
-                // - Получить список всех заемщиков;
-                // - Получить список кредитов по заданному типу(автокредит, ипотека или кредит на образование);
-                // - Добавить новый кредит;
-                // - Получить список кредитов по заданной фамилии заемщика.
-                // - Рассчитать сумму ежемесячного аннуитетного платежа для заданного кредита(по ID кредита).
                 Console.WriteLine("Welcome to the credit system!");
 
                 CreditInformationService creditInfoService = new CreditInformationService();

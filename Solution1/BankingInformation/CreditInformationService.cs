@@ -148,19 +148,12 @@ namespace BankingInformation
                 Console.WriteLine("Invalid input. Please enter a number.");
             }
 
+
             int countOfMonth;
             Console.WriteLine("\nEnter the credit term in months: ");
-            while (true)
+            while (!(int.TryParse(SafeReadLine(), out countOfMonth) && countOfMonth > 1))
             {
-                string userInput = SafeReadLine();
-                if (int.TryParse(userInput, out countOfMonth) && countOfMonth > 1)
-                {
-                    break; 
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please enter an integer between 1 and 12.");
-                }
+                Console.WriteLine("Invalid input. Please enter the number of months more than 1.");
             }
 
             double percent;
@@ -313,7 +306,7 @@ namespace BankingInformation
 
                 double monthlyPayment = credit.Amount * annuityFactor;
 
-                Console.WriteLine($"\nThe amount of the monthly annuity payment: {Math.Round(monthlyPayment, 2)}£"); 
+                Console.WriteLine($"\nThe amount of the monthly annuity payment: {Math.Round(monthlyPayment, 2)}"); 
             }
             else
             {
