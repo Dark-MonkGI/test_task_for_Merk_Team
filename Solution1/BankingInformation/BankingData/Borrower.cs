@@ -1,5 +1,5 @@
-﻿using BankingInformation.Credits;
-using System;
+﻿using System;
+using BankingInformation.Credits;
 
 namespace BankingInformation.BankingData
 {

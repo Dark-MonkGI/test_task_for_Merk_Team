@@ -68,18 +68,18 @@ namespace BankingInformation
 
 
             string userChoice = Console.ReadLine()!;
-            string creditType;
+            CreditType creditType;
 
             switch (userChoice)
             {
                 case "1":
-                    creditType = "Car Credit";
+                    creditType = CreditType.CarCredit;
                     break;
                 case "2":
-                    creditType = "Mortgage";
+                    creditType = CreditType.Mortgage;
                     break;
                 case "3":
-                    creditType = "Education Credit";
+                    creditType = CreditType.EducationCredit;
                     break;
                 case "0":
                     return;
@@ -88,9 +88,9 @@ namespace BankingInformation
                     return;
             }
 
-            List<Credit> creditsOfType = credits.Where(credit => credit.GetCreditType() == creditType).ToList();
+            List<Credit> creditsOfType = credits.Where(credit => credit.CreditType == creditType).ToList();
 
-            Console.WriteLine($"\nList of loans for the selected type - {creditType}: ");
+            Console.WriteLine($"\nList of loans for the selected type - {creditsOfType[0].GetCreditTypeString()}: ");
 
             string tableHeader = "\nLoan ID | Loan amount | Interest rate | Loan term | Loan type | Bank name | " +
                     "Borrower's surname and first name";
@@ -191,7 +191,7 @@ namespace BankingInformation
 
             Console.WriteLine("\nEnter the borrower date of birth (dd/MM/yyyy): ");
             DateTime borrowerDateOfBirth;
-            while (!DateTime.TryParseExact(SafeReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out borrowerDateOfBirth))
+            while (!DateTime.TryParseExact(SafeReadLine().Replace('.', '/'), "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out borrowerDateOfBirth))
             {
                 Console.WriteLine("Incorrect date format! Please enter the correct date in the format (dd/MM/yyyy): ");
             }

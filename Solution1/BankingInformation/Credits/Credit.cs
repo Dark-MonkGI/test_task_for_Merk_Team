@@ -11,8 +11,28 @@ namespace BankingInformation.Credits
 
         public Borrower Borrower { get; set; }
         public Bank Bank { get; set; }
-
+        public CreditType CreditType { get; set; }
         public abstract string GetCreditInfo();
-        public abstract string GetCreditType();
+
+
+        public virtual string GetCreditTypeString()
+        {
+            string result = "";
+
+            switch (this.CreditType)
+            {
+                case CreditType.CarCredit:
+                    result = "Car Credit";
+                    break;
+                case CreditType.Mortgage:
+                    result = "Mortgage";
+                    break;
+                case CreditType.EducationCredit:
+                    result = "Education Credit";
+                    break;
+            }
+
+            return result;
+        }
     }
 }

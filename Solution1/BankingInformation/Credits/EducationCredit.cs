@@ -7,15 +7,15 @@ namespace BankingInformation.Credits
         public string UniversityName { get; set; }
         public string UniversityAddress { get; set; }
 
-        public override string GetCreditType() { return "Education Credit"; }
         public override string GetCreditInfo()
         {
-            return $"{ID} | {Amount} | {Percent} | {CountOfMonth} | {GetCreditType()} | {Bank.Name} | {Borrower.LastName} {Borrower.FirstName}";
+            return $"{ID} | {Amount} | {Percent} | {CountOfMonth} | {GetCreditTypeString()} | {Bank.Name} | {Borrower.LastName} {Borrower.FirstName}";
         }
 
         public EducationCredit(string id, double amount, int countOfMonth, double percent, Borrower borrower, Bank bank,
             string universityName, string universityAddress)
         {
+            this.CreditType = CreditType.EducationCredit;
             this.ID = id;
             this.Amount = amount;
             this.CountOfMonth = countOfMonth;
